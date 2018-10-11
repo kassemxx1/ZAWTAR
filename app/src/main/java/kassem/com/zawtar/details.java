@@ -15,7 +15,9 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -36,14 +38,16 @@ public class details extends AppCompatActivity {
         String imagename = b.getString("imagename");
         ArrayList<String> ddd = b.getStringArrayList("pics");
         ArrayList<String> vvv = b.getStringArrayList("videos");
+        detailstitle.setText(title);
+        detailsDetails.setText(details);
+
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////
         if (ddd == null) {
             picturess.add(imagename);
         } else {
             picturess = ddd;
         }
-
-        detailstitle.setText(title);
-        detailsDetails.setText(details);
 
         ListView listimage = (ListView) findViewById(R.id.PICS);
         listimage.setOnTouchListener(new ListView.OnTouchListener() {
@@ -69,21 +73,40 @@ public class details extends AppCompatActivity {
         });
         picturesadapter aaa = new picturesadapter();
         listimage.setAdapter(aaa);
-        String frameVideo = "<html><body>Video From YouTube<br><iframe width=\"420\" height=\"315\" src=\"https://www.youtube.com/embed/47yJ2XCRLZs\" frameborder=\"0\" allowfullscreen></iframe></body></html>";
 
-        WebView vp=(WebView)findViewById(R.id.videolayout);
-        vp.setWebViewClient(new WebViewClient() {
-            @Override
-            public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                return false;
-            }
-        });
-        WebSettings webSettings = vp.getSettings();
-        webSettings.setJavaScriptEnabled(true);
-        vp.loadData(frameVideo, "text/html", "utf-8");
-        vp.setWebViewClient();
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
+        if (vvv!=null){
+
+            WebView webView ;
+
+            String YouTubeVideoEmbedCode = "<html><body><iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/-fEIzQ5JD84\" frameborder=\"0\" allowfullscreen></iframe></body></html>";
+
+
+
+
+                webView = (WebView) findViewById(R.id.videolayout);
+
+                webView.setWebViewClient(new WebViewClient() {
+
+                    @Override
+                    public boolean shouldOverrideUrlLoading(WebView view, String url) {
+
+                        return false;
+                    }
+                });
+
+                WebSettings webSettings = webView.getSettings();
+
+                webSettings.setJavaScriptEnabled(true);
+
+                webView.loadData(YouTubeVideoEmbedCode, "text/html", "utf-8");
+
+        }
     }
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
     class picturesadapter extends BaseAdapter {
 
@@ -108,10 +131,12 @@ public class details extends AppCompatActivity {
             ImageView pic = view.findViewById(R.id.pictures);
             new DownloadImageTask((ImageView) pic)
                     .execute(picturess.get(position));
-
             return view;
         }
     }
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }
+
+
+
