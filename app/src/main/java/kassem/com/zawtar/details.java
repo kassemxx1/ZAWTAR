@@ -17,7 +17,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import java.util.ArrayList;
 
@@ -77,33 +77,7 @@ public class details extends AppCompatActivity {
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-        if (vvv!=null){
 
-            WebView webView ;
-
-            String YouTubeVideoEmbedCode = "<html><body><iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/-fEIzQ5JD84\" frameborder=\"0\" allowfullscreen></iframe></body></html>";
-
-
-
-
-                webView = (WebView) findViewById(R.id.videolayout);
-
-                webView.setWebViewClient(new WebViewClient() {
-
-                    @Override
-                    public boolean shouldOverrideUrlLoading(WebView view, String url) {
-
-                        return false;
-                    }
-                });
-
-                WebSettings webSettings = webView.getSettings();
-
-                webSettings.setJavaScriptEnabled(true);
-
-                webView.loadData(YouTubeVideoEmbedCode, "text/html", "utf-8");
-
-        }
     }
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -137,6 +111,8 @@ public class details extends AppCompatActivity {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 }
+
+
 
 
 

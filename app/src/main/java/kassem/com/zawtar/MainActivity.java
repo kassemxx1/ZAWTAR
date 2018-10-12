@@ -1,10 +1,12 @@
 package kassem.com.zawtar;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -62,9 +64,10 @@ public class MainActivity extends AppCompatActivity {
 
                                 @SuppressWarnings("unchecked")
                                 ArrayList<String> pics= (ArrayList<String>) document.get("pics") ;
+                                Log.d("llllllllllllllll",""+pics);
                                 @SuppressWarnings("unchecked")
                                 ArrayList<String> videos= (ArrayList<String>) document.get("videos") ;
-
+                                Log.d("aaaaaaaaaaaaaaaaaa",""+videos);
 
                                 news.add(0, new CustomClass(title, details, time, imagename,pics,videos));
                                 String ss = "" + news.size();
@@ -87,7 +90,15 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                 });
+////////////////////////////////////////////////////////////////////////////////////////////////////
+        android.support.v7.app.ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayShowCustomEnabled(true);
 
+        LayoutInflater inflator = (LayoutInflater) this .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View v = inflator.inflate(R.layout.custombar, null);
+
+        actionBar.setCustomView(v);
+///////////////////////////////////////////////
 
 
     }
@@ -99,8 +110,9 @@ public class MainActivity extends AppCompatActivity {
         mybundle.putString("details", news.get(i).detailsfb);
         mybundle.putString("time", news.get(i).time);
         mybundle.putString("imagename", news.get(i).imagefb);
-        mybundle.putString("pics", String.valueOf(news.get(i).pics));
-        mybundle.putString("videos", String.valueOf(news.get(i).videos));
+        mybundle.putStringArrayList("pics", ( news.get(i).pics));
+        mybundle.putStringArrayList("videos",(news.get(i).videos));
+
         myintet.putExtras(mybundle);
         startActivity(myintet);
     }
