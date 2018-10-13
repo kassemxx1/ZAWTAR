@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -103,6 +105,28 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        int id =item.getItemId();
+        if(id==R.id.aboutt){
+            Intent aboutintet=new Intent(MainActivity.this,about.class);
+            startActivity(aboutintet);
+        }
+        if (id==R.id.phonebook){
+            Intent phonetintet=new Intent(MainActivity.this,phone.class);
+            startActivity(phonetintet);
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////
     void pass(int i) {
         Intent myintet = new Intent(MainActivity.this, details.class);
         Bundle mybundle = new Bundle();
@@ -116,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
         myintet.putExtras(mybundle);
         startActivity(myintet);
     }
-
+////////////////////////////////////////////////////////////////////////////////////////////
 //    void retrieve() {
 //
 //        final FirebaseFirestore db = FirebaseFirestore.getInstance();
