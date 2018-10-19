@@ -4,36 +4,20 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="0dp"
-        android:layout_marginRight="10dp"
-        android:layout_weight="1"
-        android:text="TextView"
-        android:textSize="20dp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView2"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginRight="10dp"
-        android:layout_weight="1"
-        android:text="TextView" />
-
-    <ListView
-        android:id="@+id/PICS"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/textView3"
-        android:layout_marginTop="0dp"
-        android:paddingTop="0dp" />
+        android:orientation="vertical">
 
+        <ListView
+            android:id="@+id/PICS"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="0dp"
+            android:paddingTop="0dp"
+            android:divider="@null"
+            android:dividerHeight="5dp"/>
+    </LinearLayout>
 
 
 </RelativeLayout>

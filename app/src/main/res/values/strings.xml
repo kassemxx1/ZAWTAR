@@ -2,4 +2,5 @@
     <string name="app_name">ZAWTAR</string>
     <string name="todo">TODO</string>
     <string name="textview">TextView</string>
+    <string name="choose">Choose</string>
 </resources>
