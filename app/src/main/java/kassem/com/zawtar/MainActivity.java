@@ -90,11 +90,6 @@ public class MainActivity extends AppCompatActivity {
             news.clear();
         retirirve();
     }
-        if (id == R.id.admin){
-            Intent admin=new Intent(MainActivity.this,administrator.class);
-            startActivity(admin);
-
-        }
         return super.onOptionsItemSelected(item);
     }
 

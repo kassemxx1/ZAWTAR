@@ -9,8 +9,6 @@
         android:id="@+id/phonebook"></item>
     <item android:id="@+id/aboutt"
         android:title="about" ></item>
-    <item android:title="admin"
-        android:id="@+id/admin"></item>
     <item
         android:id="@+id/action_refresh"
         android:orderInCategory="100"

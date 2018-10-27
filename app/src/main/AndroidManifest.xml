@@ -18,7 +18,6 @@
         <activity android:name=".details" />
         <activity android:name=".about" />
         <activity android:name=".phone" />
-        <activity android:name=".administrator"/>
         <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -45,7 +44,6 @@
             android:resource="@drawable/z2" />
         <!-- Set color used with incoming notification messages. This is used when no color is set for the incoming notification message. -->
 
-        <activity android:name=".administrator"></activity>
     </application>
 
 </manifest>
