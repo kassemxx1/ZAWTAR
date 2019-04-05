@@ -18,6 +18,7 @@ import android.view.ViewParent;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.PopupMenu;
@@ -131,8 +132,9 @@ public class MainActivity extends AppCompatActivity {
         public long getItemId(int position) {
             return 0;
         }
-
+        
         @Override
+
         public View getView(int position, View convertView, ViewGroup parent) {
 
 
@@ -144,6 +146,7 @@ public class MainActivity extends AppCompatActivity {
             ImageView image = view.findViewById(R.id.imageView);
 
             ImageLoader.getInstance().displayImage(news.get(position).imagefb, image);
+
             return view;
 
         }
